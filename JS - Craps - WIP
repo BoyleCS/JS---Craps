@@ -1,0 +1,116 @@
+/*Problem: Develop the game of Craps for an online Casino Games website. 
+
+Assignment: Craps is a game of chance based on the sum of two rolled dice. 
+Your program should simulate a player having a bankroll of $500 and he/she 
+can bet as much of it as they choose.
+*/
+
+
+var bankRoll = 500;
+//var wagerAmount = getNumber("wager");
+var dice1 = randomNumber(1,6);
+var dice2 = randomNumber(1,6);
+
+//var dice1 = randomNumber(1,6);
+//var dice2 = randomNumber(1,6);
+var diceSum = parseInt(dice1 + dice2);
+var myPoint = diceSum;
+playCraps();
+
+function playCraps() {
+  var wagerAmount = promptNum("You currently have $" + bankRoll + ". How much would you like to bet?");
+  bankRoll = bankRoll - wagerAmount;
+  console.log(dice1);
+  console.log(dice2);
+  console.log(diceSum);
+
+  if (diceSum == 7 || diceSum == 11){
+    console.log("You win!");
+    console.log("You win " + (wagerAmount*2));
+    bankRoll = bankRoll + wagerAmount*2;
+    console.log("Your new bankroll is " + parseInt(bankRoll));
+    bankRoll = bankRoll + wagerAmount;  
+  } else if (diceSum == 2 || diceSum == 3 || diceSum == 12){
+    console.log("You lose " + (wagerAmount));
+      bankRoll = bankRoll-wagerAmount;
+    console.log("Your new bankroll is " + parseInt(bankRoll-wagerAmount));
+  } else {
+    console.log("The point is " + diceSum + ".");
+
+  }
+while (diceSum==4 || diceSum==5 || diceSum==6 || diceSum==8 || diceSum==9 || diceSum==10)
+  //console.log(myPoint);
+dice1 = randomNumber(1,6);
+dice2 = randomNumber(1,6);
+ if (myPoint == diceSum){
+     console.log(diceSum);
+  console.log("You win " + (wagerAmount*2));
+    bankRoll = bankRoll + wagerAmount*2;
+  console.log("Your new bankroll is " + parseInt(bankRoll));
+
+} else (diceSum==7);
+     //console.log(diceSum);
+      bankRoll = bankRoll-wagerAmount;
+  console.log("You lose " + (wagerAmount));
+  console.log("Your new bankroll is " + parseInt(bankRoll-wagerAmount));
+}
+
+/*
+function pointCraps(){
+while (diceSum==4 || diceSum==5 || diceSum==6 || diceSum==8 || diceSum==9 || diceSum==10);
+ diceRoll();
+
+  //console.log(myPoint);
+ if (myPoint == diceSum){
+     console.log(diceSum);
+  console.log("You win " + (wagerAmount*2));
+    bankRoll = bankRoll + wagerAmount*2;
+  console.log("Your new bankroll is " + parseInt(bankRoll));
+
+} else (diceSum==7);
+     //console.log(diceSum);
+      bankRoll = bankRoll-wagerAmount;
+  console.log("You lose " + (wagerAmount));
+  console.log("Your new bankroll is " + parseInt(bankRoll-wagerAmount));
+}
+*/
+
+
+
+
+/*
+A typical game follows this pattern:
+
+The roller makes a Wager. 
+The two dice are rolled and their sum calculated. 
+A 7 or 11 on the first roll results in an automatic Win. 
+It’s called a Natural and the roller’s wager gets double their Wager
+A 2, 3 or 12 on the first roll results in an automatic loss.  
+This is called Craps and the roller loses their Wager 
+Any other number ( 4, 5, 6, 8, 9, 10) becomes the point. 
+If the user rolls a 4, 5, 6, 8, 9, 10 on the first roll, 
+the program continues to roll until one of the following happens: 
+They roll their point again.  This is a Win (double Wager) 
+The roll a 7 - This is a loss(lose Wager) 
+At the end of the turn, the users bankroll should be updated according 
+to either winning or losing. And they should be asked if they want to roll again. 
+If they say or choose yes, the process repeats, otherwise the program exits and 
+they are thanked for playing and told how much they leave the game with.
+
+Hints to get started:
+
+One thing we need to be able to do in our program is to "roll the dice". 
+We'll need to check (and probably print to the user!) what the most recent 
+value was for each of the two die when they were rolled. Rolling one die 
+can be thought of as generating a random number between [1,6] (inclusive). 
+See your Javascript cheatsheet for random numbers in a range...
+
+What other numeric values do we need to keep track of? We'll need variables for these...
+
+What "conditions" do we need to keep track of? An important condition is 
+whether the most recent roll of the dice resulted in a win, loss, or to simply continue.
+
+Some conditions you will check one time, so you'll use an "if" statement. 
+For some parts of craps, you'll keep doing the same thing until some condition occurs 
+-- so you'll want to think about using a for or while loop. 
+*/
