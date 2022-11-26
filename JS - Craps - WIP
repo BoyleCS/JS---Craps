@@ -35,24 +35,31 @@ function playCraps() {
       bankRoll = bankRoll-wagerAmount;
     console.log("Your new bankroll is " + parseInt(bankRoll-wagerAmount));
   } else {
+  
     console.log("The point is " + diceSum + ".");
 
   }
 while (diceSum==4 || diceSum==5 || diceSum==6 || diceSum==8 || diceSum==9 || diceSum==10)
+{
   //console.log(myPoint);
 dice1 = randomNumber(1,6);
 dice2 = randomNumber(1,6);
+myPoint = (dice1+dice2);
+console.log(myPoint);
  if (myPoint == diceSum){
-     console.log(diceSum);
   console.log("You win " + (wagerAmount*2));
     bankRoll = bankRoll + wagerAmount*2;
   console.log("Your new bankroll is " + parseInt(bankRoll));
+  break;
 
-} else (diceSum==7);
+} else if (myPoint==7){
      //console.log(diceSum);
       bankRoll = bankRoll-wagerAmount;
   console.log("You lose " + (wagerAmount));
   console.log("Your new bankroll is " + parseInt(bankRoll-wagerAmount));
+  break;
+} else (myPoint != diceSum && myPoint != 7);
+}
 }
 
 /*
@@ -114,3 +121,62 @@ Some conditions you will check one time, so you'll use an "if" statement.
 For some parts of craps, you'll keep doing the same thing until some condition occurs 
 -- so you'll want to think about using a for or while loop. 
 */
+
+function diceRoll(){
+ dice1 = randomNumber(1,6);
+ dice2 = randomNumber(1,6);
+ console.log = (dice1 + dice2);
+}
+
+function reRoll(){
+  dice1 = randomNumber(1,6);
+  dice2 = randomNumber(1,6);
+}
+
+function diceUpdate1() {
+ if (dice1==1){
+   showElement("Dice1");
+ } 
+  if (dice1==2){
+   showElement("Dice2");
+ } 
+  if (dice1==3){
+   showElement("Dice3");
+ } 
+  if (dice1==4){
+   showElement("Dice4");
+ }
+  if (dice1==5){
+   showElement("Dice5");
+ } 
+  if (dice1==6){
+   showElement("Dice6");
+ }
+}
+
+function diceUpdate2() {
+ if (dice2==1){
+   showElement("Dice1_2");
+ } 
+  if (dice2==2){
+   showElement("Dice2_2");
+ } 
+  if (dice2==3){
+   showElement("Dice3_2");
+ } 
+  if (dice2==4){
+   showElement("Dice4_2");
+ }
+  if (dice2==5){
+   showElement("Dice5_2");
+ } 
+  if (dice2==6){
+   showElement("Dice6_2");
+ }
+}
+
+function bankRollUpdate() {
+setProperty("balance", "value", bankRoll);
+setProperty("balance", "font-size", 36);
+setProperty("balance", "text-align", "center"); 
+}
